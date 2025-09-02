@@ -70,7 +70,7 @@ DeviceProcessEvents
 <img width="1544" height="119" alt="image" src="https://github.com/user-attachments/assets/6ad06316-ccaf-476f-a0ff-36ef63a39da2" />
 
 
-### 4. Optional File and Network Telemetry
+### 4. File and Network Telemetry
 
 - `DeviceFileEvents` was queried for creation/movement/deletion of `.7z` files, but **no events were observed** in this lab environment.  
 - `DeviceNetworkEvents` was queried for potential cloud upload activity (Google Drive, Dropbox), but **no events were observed**.  
