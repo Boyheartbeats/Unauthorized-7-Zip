@@ -35,6 +35,9 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, AccountName, FileName, FolderPath, ProcessCommandLine
 ```
 
+<img width="1569" height="275" alt="image" src="https://github.com/user-attachments/assets/b871e737-e58f-4a92-9bfd-450c9f0e3fc0" />
+
+
 ### 2. Detected Password-Protected Archive Creation
 
 Process telemetry revealed that `7zr.exe` was executed with the `-p` and `-mhe=on` arguments, confirming creation of a password-protected and header-encrypted archive (`staged-data-encrypted.7z`).  
@@ -47,6 +50,9 @@ DeviceProcessEvents
 | where ProcessCommandLine has_any (" -p", "-mhe=on")
 | project Timestamp, DeviceName, AccountName, ProcessCommandLine
 ```
+
+<img width="1565" height="129" alt="image" src="https://github.com/user-attachments/assets/3cf6f88c-c3a2-4274-973c-6f8938ac81d8" />
+
 
 ### 3. Searched for `.7z` Archive References in Command Line
 
@@ -61,6 +67,9 @@ DeviceProcessEvents
 | project Timestamp, DeviceName, AccountName, ProcessCommandLine
 ```
 
+<img width="1544" height="119" alt="image" src="https://github.com/user-attachments/assets/6ad06316-ccaf-476f-a0ff-36ef63a39da2" />
+
+
 ### 4. Optional File and Network Telemetry
 
 - `DeviceFileEvents` was queried for creation/movement/deletion of `.7z` files, but **no events were observed** in this lab environment.  
@@ -73,6 +82,9 @@ DeviceFileEvents
 | where FileName has ".7z"
 | project Timestamp, DeviceName, ActionType, FileName, FolderPath
 ```
+
+<img width="1527" height="225" alt="image" src="https://github.com/user-attachments/assets/dafd3d7e-e128-4841-aa17-b25dafdbc91d" />
+
 
 ## Chronological Event Timeline
 
