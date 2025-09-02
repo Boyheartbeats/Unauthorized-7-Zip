@@ -125,9 +125,9 @@ The following response actions were taken:
 - **Date**: August 30, 2025  
 
 ## Validated By
-- **Reviewer Name**:  
-- **Reviewer Contact**:  
-- **Validation Date**:  
+- **Reviewer Name**:  N/A
+- **Reviewer Contact**: N/A
+- **Validation Date**:  N/A
 
 ## Additional Notes
 - In this lab, **DeviceProcessEvents** provided the primary evidence of 7-Zip execution and archive creation.  
