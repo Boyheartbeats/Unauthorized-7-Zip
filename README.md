@@ -20,7 +20,7 @@ The goal is to detect any unauthorized 7-Zip usage and analyze related security 
 - **Check `DeviceProcessEvents`** for 7-Zip execution (`7zr.exe` or `7z.exe`) with archive creation commands.  
 - **Check `DeviceProcessEvents`** for password-protected archive creation (flags `-p`, `-mhe`).  
 - **Check `DeviceFileEvents`** for `.7z` archive files created, moved, or deleted (optional, may not appear).  
-- **Check `DeviceNetworkEvents`** for possible exfiltration attempts if archives are uploaded via browsers (optional).  
+- **Check `DeviceNetworkEvents`** for possible exfiltration attempts if archives are uploaded via browsers.  
 
 ### 1. Searched the `DeviceProcessEvents` Table
 
