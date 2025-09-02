@@ -91,24 +91,26 @@ DeviceFileEvents
 ### 1. Process Execution – Archive Creation
 - **Event:** `7zr.exe` executed by `dbwindowsadmin`.  
 - **Action:** Compression initiated using the `a` (add) command.  
-- **Command:** `7zr.exe a staged-data.7z ...`  
+- **Command:** `7zr.exe a staged-data.7z EmployeeRecords_pwncrypt.csv ProjectList_pwncrypt.csv CompanyFinancials_pwncrypt.csv`  
 
 ---
 
 ### 2. Process Execution – Encrypted Archive Creation
 - **Event:** `7zr.exe` executed with encryption flags.  
 - **Action:** Password-protected archive created.  
-- **Command:** `7zr.exe a -pSuperSecret123 -mhe=on staged-data-encrypted.7z ...`  
+- **Command:** `7zr.exe a -pSuperSecret123 -mhe=on staged-data-encrypted.7z EmployeeRecords_pwncrypt.csv ProjectList_pwncrypt.csv CompanyFinancials_pwncrypt.csv`  
 
 ---
 
 ### 3. Archive Staging
-- **Event:** Archive moved into the Downloads folder.  
+- **Event:** Encrypted archive moved into the Downloads folder.  
 - **Action:** Staging for potential exfiltration confirmed via process telemetry.  
+- **File Path:** `C:\Users\dbwindowsadmin\Downloads\staged-data-encrypted.7z`  
 
 ---
 
 *Note: File creation/deletion telemetry (`DeviceFileEvents`) was expected but not observed. Process telemetry (`DeviceProcessEvents`) alone provided sufficient evidence of archive creation and encryption.*  
+
 
 ## Summary
 
@@ -116,11 +118,17 @@ The user `dbwindowsadmin` on endpoint `dbwindowsadmin` executed 7-Zip portable (
 
 Evidence collected included:  
 
-- **Process execution** of `7zr.exe` with `a` (add) command.  
-- **Process arguments** confirming password-protected archive creation (`-p`, `-mhe=on`).  
-- **Archive staging** in the Downloads folder.  
+- **Process execution** of `7zr.exe` with the `a` (add) command:  
+  `7zr.exe a staged-data.7z EmployeeRecords_pwncrypt.csv ProjectList_pwncrypt.csv CompanyFinancials_pwncrypt.csv`  
+
+- **Process arguments** confirming password-protected archive creation (`-p`, `-mhe=on`):  
+  `7zr.exe a -pSuperSecret123 -mhe=on staged-data-encrypted.7z EmployeeRecords_pwncrypt.csv ProjectList_pwncrypt.csv CompanyFinancials_pwncrypt.csv`  
+
+- **Archive staging** in the Downloads folder:  
+  `C:\Users\dbwindowsadmin\Downloads\staged-data-encrypted.7z`  
 
 This sequence of events confirms unauthorized use of 7-Zip to prepare potentially sensitive data for exfiltration.  
+
 
 ## Response Taken
 
