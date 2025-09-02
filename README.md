@@ -1,6 +1,6 @@
 # Threat Hunting 7-Zip Report
 
-- [Scenario Creation](Scenario Creation.md)
+- [Scenario Creation](https://github.com/Boyheartbeats/Threat-Hunting-Firefox/blob/main/firefox-scenario.md)
 
 ## Platforms and Languages Leveraged
 - Windows 11 Virtual Machines (Microsoft Azure)  
